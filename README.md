@@ -32,6 +32,34 @@
 $ npm install
 ```
 
+## Project Structure
+
+- `/gnd_station`
+
+  - `/src`
+    - Core NestJS backend files
+    - `/components` – Handles interface features (camera, telemetry, power, etc.)
+    - `/utils` – Shared constants, helper functions, non-secret env variables
+    - `/gateway` – WebSocket configuration (NestJS Socket.IO)
+    - `/controllers` – REST API endpoints (if need)
+    - `/services` – Logic layer for data processing, stateful algorithms (e.g. camera data)
+    - `/database` – Data persistence (schemas, repositories, and storage setup)
+    - `/config` – Configuration files for WebSockets, DB, and environment settings
+  - `/test` – Unit and integration test cases
+
+- `.prettierrc`, `eslint.config.mjs` – Code formatting and linting config
+- `nest-cli.json`, `tsconfig.json` – NestJS, TypeScript config
+- `package.json`, `package-lock.json` – Dependencies
+- `README.md`
+
+---
+
+### Database (pending)
+
+- **Local (SQLite)** → Fast real-time data storage on Raspberry Pi
+- **Cloud (MongoDB/AWS)** → Long-term logs, remote access, and analytics
+- **Hybrid** → Local-first, with cloud sync when WiFi is available
+
 ## Compile and run the project
 
 ```bash
