@@ -1,23 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { exec } from 'child_process';
+import {leftPipeline, rightPipeline} from 'src/utils/constants';
 
 @Injectable()
 export class StreamService {
-  private leftPipeline: string;
-  private rightPipeline: string;
-
-  constructor() {
-    this.leftPipeline = (
-      'libcamerasrc camera-name="/base/axi/pcie@120000/rp1/i2c@88000/imx219@10" ! video/x-raw,width=640,height=480,framerate=30/1,format=NV12 ! ' +
-      'videoconvert ! x264enc bitrate=500 speed-preset=ultrafast ! rtph264pay ! udpsink host=100.102.125.110 port=3000'
-    );
-    this.rightPipeline = (
-      'libcamerasrc camera-name="/base/axi/pcie@120000/rp1/i2c@80000/imx219@10" ! video/x-raw,width=640,height=480,framerate=30/1,format=NV12 ! ' +
-      'videoconvert ! x264enc bitrate=500 speed-preset=ultrafast ! rtph264pay ! udpsink host=100.102.125.110 port=3000'
-    );
-  }
-
- public startStreaming() {
+  
+ public startBothCameras() {
     this.startLeftCamera();
     this.startRightCamera();
   }
