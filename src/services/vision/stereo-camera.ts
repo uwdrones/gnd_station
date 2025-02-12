@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { exec, ChildProcessWithoutNullStreams } from 'child_process';
 import * as WebSocket from 'ws';
 import {leftPipeline, rightPipeline} from 'src/utils/constants';
+import { WebSocketModule } from './websocket.module';
 
 @Injectable()
 export class StreamService {
@@ -10,13 +11,17 @@ export class StreamService {
   private wss: WebSocket.Server;
   private clients: Set<WebSocket> = new Set();
   
-  constructor() {
-    this.wss = new WebSocket.Server({ port: 8080 });
-    this.wss.on('connection', (ws) => {
+  constructor(private readonly webSocketModule: WebSocketModule) {
+    this.webSocketModule.wss.on('connection', (ws) => {
       console.log('Client connected');
       this.clients.add(ws);
       ws.on('close', () => {
         console.log('Client disconnected');
+        this.clients.delete(ws);
+      });
+
+      ws.on('error', (error) => {
+        console.error('WebSocket error:', error);
         this.clients.delete(ws);
       });
     });
