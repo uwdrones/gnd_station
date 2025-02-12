@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "ES2020",
+    "module": "CommonJS",
     "moduleResolution": "node",
     "declaration": true,
     "removeComments": true,
@@ -13,6 +13,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "baseUrl": "./",
+    "allowJs": true,
     "incremental": true,
     "skipLibCheck": true,
     "strict": true,
@@ -21,8 +22,9 @@
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "composite": true
   },
-  "include": ["src", ".eslintrc.js"],
-  "exclude": ["node_modules", "dist", "test"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }
