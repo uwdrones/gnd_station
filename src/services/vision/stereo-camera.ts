@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { exec, ChildProcessWithoutNullStreams } from 'child_process';
 import * as WebSocket from 'ws';
 import {leftPipeline, rightPipeline} from 'src/utils/constants';
-import { WebSocketModule } from './websocket.module';
+import { WebSocketModule } from 'src/services/websocket.module';
 
 @Injectable()
 export class StreamService {
