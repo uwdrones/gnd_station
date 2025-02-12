@@ -28,7 +28,7 @@ export class StreamService {
   }
   
   public startLeftCamera() {
-    this.leftCameraProcess = exec(`gst-launch-1.0 ${StreamService.leftPipeline}`);
+    this.leftCameraProcess = exec(`gst-launch-1.0 ${leftPipeline}`);
 
     this.leftCameraProcess.stdout.on('data', (data) => {
       this.broadcastFrame(data);
@@ -44,7 +44,7 @@ export class StreamService {
   }
 
   public startRightCamera() {
-    this.rightCameraProcess = exec(`gst-launch-1.0 ${StreamService.rightPipeline}`);
+    this.rightCameraProcess = exec(`gst-launch-1.0 ${rightPipeline}`);
 
     this.rightCameraProcess.stdout.on('data', (data) => {
       this.broadcastFrame(data);
