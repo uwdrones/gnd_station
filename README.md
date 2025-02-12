@@ -37,7 +37,6 @@ $ npm install
 - `/gnd_station`
 
   - `/src`
-    - Core NestJS backend files
     - `/components` – Handles interface features (camera, telemetry, power, etc.)
     - `/utils` – Shared constants, helper functions, non-secret env variables
     - `/gateway` – WebSocket configuration (NestJS Socket.IO)
@@ -47,10 +46,9 @@ $ npm install
     - `/config` – Configuration files for WebSockets, DB, and environment settings
   - `/test` – Unit and integration test cases
 
-- `.prettierrc`, `eslint.config.mjs` – Code formatting and linting config
+- `prettier*`, `eslint*` – Code formatting and linting config
 - `nest-cli.json`, `tsconfig.json` – NestJS, TypeScript config
-- `package.json`, `package-lock.json` – Dependencies
-- `README.md`
+- `package.json` – Dependencies
 
 ---
 
