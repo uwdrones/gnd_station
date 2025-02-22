@@ -27,7 +27,7 @@ export class BroadcastService {
   public broadcast(
     data: Buffer | object | string,
     metadata?: object,
-    binaryData?: Buffer
+    binaryData?: Buffer,
   ) {
     let messageBuffer: Buffer;
     let finalBuffer: Buffer;
