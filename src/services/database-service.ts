@@ -1,6 +1,6 @@
 // TODO: PLACEHOLDER FOR THE DATABASE CRUD LOGIC HANDLER, WILL BE PULLED FOR ALL THE COMPONENTS IF NECESSARY
 import { Injectable } from '@nestjs/common';
-import * as WebSocket from 'ws';
+import WebSocket from 'ws';
 import { WebSocketModule } from 'src/services/websocket.module';
 
 @Injectable()

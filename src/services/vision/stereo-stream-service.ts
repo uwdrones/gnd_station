@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { exec, ChildProcessWithoutNullStreams } from 'child_process';
-import { leftPipeline, rightPipeline } from 'src/utils/constants';
-import { BroadcastService } from './broadcast.service';
+import { leftPipeline, rightPipeline } from '../../utils/constants';
+import { BroadcastService } from '../database-service';
 
 @Injectable()
 export class StreamService {
@@ -16,7 +16,7 @@ export class StreamService {
   }
 
   public startLeftCamera() {
-    this.leftCameraProcess = exec(`gst-launch-1.0 ${leftPipeline}`);
+    this.leftCameraProcess = exec(`gst-launch-1.0 ${leftPipeline}`) as ChildProcessWithoutNullStreams;
     this.leftCameraProcess.stdout.on('data', (data) => {
       this.broadcastService.broadcast(
         data,
@@ -32,7 +32,7 @@ export class StreamService {
   }
 
   public startRightCamera() {
-    this.rightCameraProcess = exec(`gst-launch-1.0 ${rightPipeline}`);
+    this.rightCameraProcess = exec(`gst-launch-1.0 ${rightPipeline}`) as ChildProcessWithoutNullStreams;
     this.rightCameraProcess.stdout.on('data', (data) => {
       this.broadcastService.broadcast(
         data,
