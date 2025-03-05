@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket";
 
-const WS_URL = "ws://192.168.1.100:9090"; // Change to Raspberry Pi's IP
+const WS_URL = "ws://100.114.42.48:8080"; // Tailscale static IP address for now
 
 const TelemetryDashboard: React.FC = () => {
   const [telemetry, setTelemetry] = useState<any>(null);
