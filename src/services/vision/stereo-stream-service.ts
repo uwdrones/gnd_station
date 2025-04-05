@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { exec, ChildProcessWithoutNullStreams } from 'child_process';
 import { leftPipeline, rightPipeline } from '../../utils/constants';
-import { BroadcastService } from '../database-service';
+import { BroadcastService } from '../broadcast';
 
 @Injectable()
 export class StreamService {

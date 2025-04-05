@@ -83,6 +83,6 @@ function broadcastTelemetry(telemetry: object) {
 connectELRS();
 
 // Handle errors
-port.on('error', (err) => {
-  console.error('Error with ELRS Serial Connection:', err);
-});
+// port.on('error', (err) => {
+//   console.error('Error with ELRS Serial Connection:', err);
+// });
