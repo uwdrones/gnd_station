@@ -1,48 +1,179 @@
-.hello-container {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #f0f0f0;
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  color: #4ade80;
+  padding: 1.5rem;
+  font-family: 'Courier New', monospace;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4ade80;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.camera-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .camera-grid {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  .title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #2563eb;
-    margin-bottom: 1rem;
+}
+
+.camera-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.camera-frame {
+  border: 2px solid #4ade80;
+  padding: 0.25rem;
+  background-color: #000;
+}
+
+.camera-view {
+  position: relative;
+  width: 100%;
+}
+
+.camera-feed {
+  width: 100%;
+  height: 16rem;
+  background-color: #111;
+  object-fit: cover;
+  display: block;
+}
+
+.error-display {
+  width: 100%;
+  height: 16rem;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  color: #ef4444;
+}
+
+.camera-label {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+.top-left {
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.bottom-right {
+  bottom: 0.5rem;
+  right: 0.5rem;
+}
+
+.controls-section {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.controls-label {
+  color: #4ade80;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.wasd-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wasd-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+
+.wasd-spacer {
+  width: 100%;
+}
+
+.wasd-button {
+  background-color: #111;
+  border: 1px solid #4ade80;
+  color: #4ade80;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.wasd-button:hover {
+  background-color: #134e4a;
+}
+
+.system-controls {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.activate-button {
+  background-color: #134e4a;
+  border: 1px solid #4ade80;
+  color: #4ade80;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.activate-button:hover {
+  background-color: #115e59;
+}
+
+.activation-count {
+  color: #4ade80;
+  margin-top: 0.5rem;
+  font-family: monospace;
+}
+
+.system-status {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: #22c55e;
+}
+
+.system-status p {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
   }
-  
-  .click-button {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 1rem 0;
+  50% {
+    opacity: 1;
   }
-  
-  .click-button:hover {
-    background-color: #1d4ed8;
+  100% {
+    opacity: 0.6;
   }
-  
-  .click-count {
-    color: #4b5563;
-  }
-  
-  .camera-feed {
-    width: 640px;
-    height: 480px;
-    background-color: #000;
-    border-radius: 8px;
-    margin: 1rem 0;
-  }
-  
-  .error {
-    color: #dc2626;
-    margin: 1rem 0;
-  }
+}
   
