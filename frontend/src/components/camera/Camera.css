@@ -1,0 +1,12 @@
+.camera-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #f9f9f9;
+}
+
+.camera-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+} 

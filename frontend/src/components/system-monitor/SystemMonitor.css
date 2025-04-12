@@ -1,0 +1,12 @@
+.system-monitor-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  background-color: #f9f9f9;
+}
+
+.system-monitor-container h2 {
+  margin-bottom: 15px;
+  color: #333;
+} 
