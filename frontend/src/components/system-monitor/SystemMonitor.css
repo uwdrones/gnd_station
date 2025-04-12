@@ -9,4 +9,87 @@
 .system-monitor-container h2 {
   margin-bottom: 15px;
   color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.system-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.metric-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.metric-section h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1em;
+  color: #444;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
+}
+
+.metric-item {
+  margin-bottom: 12px;
+}
+
+.metric-label {
+  font-size: 0.9em;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-family: monospace;
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.system-status {
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.system-status-healthy {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.system-status-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.system-status-critical {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.system-loading {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
 } 
