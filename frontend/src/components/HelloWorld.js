@@ -70,8 +70,48 @@ function HelloWorld() {
     };
   }, []);
 
+  const startDetection = () => {
+    const processVideoFeed = async (videoRef) => {
+      const video = videoRef.current;
+      if (video) {
+        // Create a new canvas for each video feed
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+  
+        // Convert the canvas to a blob and send it for detection
+        await new Promise((resolve) => {
+          canvas.toBlob(async (blob) => {
+            const formData = new FormData();
+            formData.append('frame', blob, 'frame.jpg');
+  
+            const res = await fetch('http://localhost:8000/detect', {
+              method: 'POST',
+              body: formData,
+            });
+  
+            const data = await res.blob();
+            const objectURL = URL.createObjectURL(data);
+  
+            const imageWindow = window.open();
+            imageWindow.document.write(`<img src="${objectURL}" />`);
+  
+            resolve(); // Ensure this process completes before moving on
+          }, 'image/jpeg');
+        });
+      }
+    };
+  
+    // Process both front and downward video feeds
+    processVideoFeed(frontVideoRef);
+    processVideoFeed(downwardVideoRef);
+  };
+  
   return (
     <div className="main-container">
+    <div>
       <h1 className="title">Ground Station Interface</h1>
 
       <div className="camera-grid">
@@ -144,20 +184,15 @@ function HelloWorld() {
       </div>
 
       <div className="system-controls">
-        <button
-          onClick={() => setClicks(prev => prev + 1)}
-          className="activate-button"
-        >
-          ACTIVATE SYSTEM
+        <button onClick={startDetection} className="activate-button">
+         Detect objects and ArUco markers in current frame
         </button>
-        <p className="activation-count">
-          System activated {clicks} times
-        </p>
       </div>
-
+      
       <div className="system-status">
         <p>[ SYSTEM OPERATIONAL | STATUS: MONITORING ]</p>
       </div>
+    </div>
     </div>
   );
 }
